@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" lang="ru" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" lang="ru" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="ru">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Впускная прокладка TM KZ для картов. Все для картинга на Openkart.ru</title>
+<base href="https://openkart.ru/" />
+<meta name="description" content="У нас вы можете купить впускная прокладка TM KZ для гоночных картов - в наличии и под заказ, с экспресс-доставкой по России. Все для картинга на Openkart.ru" />
+<meta name="yandex-verification" content="bf8adcc2e2331beb" />
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script defer src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!--<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Roboto:300,400,500,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">-->
+<link href="catalog/view/theme/ktemplate/stylesheet/stylesheet-v3.24.css" rel="stylesheet">
+			<!-- cdek -->
+				<!-- cdek -->
+	    <script defer src="catalog/view/javascript/common4.js" type="text/javascript"></script>
+<script defer src="catalog/view/javascript/custom4.3.js" type="text/javascript"></script>
+<script defer src="catalog/view/javascript/lazyload/lazysizes.min.js"></script>
+<link rel="apple-touch-icon" sizes="192x192" href="https://openkart.ru/image/catalog/favicons/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://openkart.ru/image/catalog/favicons/favicon-192x192.png">
+<meta name="msapplication-config" content="https://openkart.ru/image/catalog/favicons/browserconfig.xml">
+<link href="https://openkart.ru/tm-kz-inlet-gasket" rel="canonical" />
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(48771104, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        ecommerce:"dataLayer"
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/48771104" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2983350-12"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-2983350-12');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript">
+	var selector = 'input.form-control.input-search';
+	var catTitle = 'Категории';
+	var prodTitle = 'Товары';
+	var viewAllTitle = 'Посмотреть все товары';
+	var noResTitle = 'Ничего не найдено';
+
+	console.log(selector);
+
+	$(document).ready(function() {
+
+		var timer = null;
+		$('input.form-control.input-search').keydown(function(){
+	       clearTimeout(timer); 
+	       timer = setTimeout(sphinxAutocomplete, 500)
+		});
+
+	});
+
+	$(document).mouseup(function (e) {
+		
+		if (!$('.sphinxsearch').is(e.target) && $('.sphinxsearch').has(e.target).length === 0) {
+			$('.sphinxsearch').hide();
+			$('input.form-control.input-search').removeClass('no-bottom-borders');
+			return false;
+		}
+		
+	});
+
+	function sphinxAutocomplete() {
+
+		if($(selector).val() == '') {
+			$('.sphinxsearch').hide();
+			$('input.form-control.input-search').removeClass('no-bottom-borders');
+			return false;
+		}
+
+		$.ajax({
+			url: 'https://openkart.ru/index.php?route=extension/module/sphinxautocomplete&search=' + $(selector).val(),
+			dataType: 'json',
+			success: function(json) {
+
+				var html = '';
+				
+				//Categories
+				if (json.categories.length) {
+					html += '<div class="categories"><span>'+catTitle+'</span>';
+					var categories = json.categories;
+					for (i = 0; i < categories.length; i++) {
+						html += '<a class="sphinxsearcha" href="' + categories[i]['href'] + '">';
+							if(categories[i]['image'] != '') {
+								html += '<img src="' + categories[i]['image'] + '" />';
+							}
+							html += categories[i]['name'];
+							html += '<br />';
+						html += '</a>';
+					}
+					html += '</div>';
+				}
+				
+				//Products
+				if (json.products.length) {
+					if (json.categories.length) { html += '<div class="products"><span>'+prodTitle+'</span>'; }
+					var products = json.products;
+					for (i = 0; i < products.length; i++) {
+						html += '<a class="sphinxsearcha" href="' + products[i]['href'] + '">';
+							html += '<img src="' + products[i]['image'] + '" />';
+							html += products[i]['name'];
+							html += '<br />';
+						html += '</a>';
+					}
+					if (json.categories.length) {  html += '</div>'; }
+					html += '<div class="sphinx-viewall"><a id="view-all" href="https://openkart.ru/search?wildcard=true&amp;search=' + encodeURIComponent($(selector).val()) + '">'+viewAllTitle+'</a></div>';
+				} else {
+					html = '<div class="sphinx-viewall">'+noResTitle+'</div>';
+				}
+
+                $('.sphinxsearch').remove();
+				$(selector).after('<div class="sphinxsearch">'+ html +'</div>');
+				$('.sphinxsearch').show();
+				$('input.form-control.input-search').addClass('no-bottom-borders');
+
+				$('.sphinxsearcha').hover(
+					function(){$(this).addClass('sphinxsearch-a-active');},
+ 					function(){$(this).removeClass('sphinxsearch-a-active');}
+				);
+
+			}
+		});
+			
+	}
+</script>
+
+</head>
+<body> 
+<header>
+  <div class="container">
+    <div class="row header-contacts">
+      <div class="col-sm-12">
+			<i class="fa fa-map-marker"></i>г. Санкт-Петербург, ул. Плуталова, д. 8
+			<i class="fa fa-mobile"></i><a href="tel:+79219672225">+7-921-9672225</a>
+			<i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection#51383f373e113e21343f3a3023257f2324"><span class="__cf_email__" data-cfemail="6900070f062906190c0702081b1d471b1c">[email&#160;protected]</span></a>
+			<i class="fa fa-calendar-o"></i>Время работы: ПН-ПТ 9:00-18:00
+	 	</div>
+	 </div>
+    <div class="row header-contacts-mobile">
+      <div class="col-sm-12">
+			<span class="dropdown"><a href="#" class="dropdown-toggle icon-map-marker" data-toggle="dropdown" aria-expanded="false">
+				<i class="fa fa-map-marker"></i></a>
+				<span class="dropdown-menu dropdown-menu-left dropdown-paddings">г. Санкт-Петербург,<br />ул. Плуталова, д. 8</span>
+			</span>
+			<a href="tel:+79219672225" class="icon-mobile"><i class="fa fa-mobile"></i></a>
+			<a href="/cdn-cgi/l/email-protection#31585f575e715e41545f5a5043451f4344" class="icon-envelope"><i class="fa fa-envelope-o"></i></a>
+			<span class="dropdown"><a href="#" class="dropdown-toggle icon-calendar" data-toggle="dropdown" aria-expanded="false">
+				<i class="fa fa-calendar-o"></i></a>
+				<span class="dropdown-menu dropdown-menu-right dropdown-paddings">Время работы:<br />ПН-ПТ 9:00-18:00</span>
+			</span>
+	 	</div>
+	 </div>
+    <div class="row header">
+      <div class="col-sm-3">
+        <div id="logo">
+				<a href="https://openkart.ru/"><img src="/catalog/view/theme/ktemplate/image/logo.png" title="Openkart - Все для картинга" alt="Openkart - Все для картинга" class="img-responsive" /></a>
+			</div>
+      </div>
+		<div class="col-sm-9"> 
+	 	  <div class="row">
+      	<div class="col-sm-5 col-lg-7">
+  			  <nav class="navbar header-menu"> 
+    			<div class="navbar-header">
+      			<button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    			</div>
+    			<div class="collapse navbar-collapse navbar-ex1-collapse">
+      			<ul class="nav navbar-nav header-links">
+        				<li><a href="https://openkart.ru/" class="link-home">Главная</a></li> 
+        				<li><a href="https://openkart.ru/latest">Новинки</a></li> 
+        				<li><a href="https://openkart.ru/specials">Акции</a></li> 
+        				<li><a href="https://openkart.ru/oplata">Оплата</a></li> 
+        				<li><a href="https://openkart.ru/contact-us">Контакты</a></li>  
+      			</ul>
+    			</div> 
+  			  </nav>
+			</div> 
+	 	<div class="col-sm-7 col-lg-5 header-right-row">
+       <div class="header-search"><div id="search"> 
+  <input type="text" name="search" value="" placeholder="Поиск..." class="form-control input-search" autocomplete="off" /> 
+  <button type="submit" value="Искать" class="button search-submit"><i class="fa fa-search"></i></button>
+</div>
+</div>
+       <div class="header-account">
+		  <ul class="list-inline"> 
+         <li class="dropdown"><a href="https://openkart.ru/my-account" title="Личный кабинет" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a> 
+          <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="https://openkart.ru/create-account">Регистрация</a></li>
+            <li><a href="https://openkart.ru/login">Авторизация</a></li>
+                       </ul>
+          </li>
+		   </ul>
+        </div>
+        <div class="header-cart">
+		   <div id="cart">
+  <a data-toggle="dropdown" data-loading-text="Загрузка..." class="dropdown-toggle my-cart" title="Корзина"><i class="fa fa-shopping-cart"></i> <div id="cart-total">0</div></a>
+  <ul class="dropdown-menu pull-right dropdown-menu-wrap">
+        <li>
+        <div class="marker"></div>
+        <p class="text-center">Ваша корзина пуста!</p>
+    </li>
+      </ul>
+</div>
+<a class="cart-total-href" href="/checkout2" style="display:none;"><i class="fa fa-shopping-cart" style="font-size:22px;height:20px;width:28px;margin-left:-4px;"></i><div class="cart-total-btn">0</div></a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript"><!--
+function loadCart8() {
+	$.ajax({
+		url: 'index.php?route=extension/quickcheckout/cart2',
+		dataType: 'html',
+		cache: false,
+		beforeSend: function() {
+			$('.tooltip').remove();
+		},
+		success: function(html) {			
+			$('.cart8 .quickcheckout-content').html(html);
+		}
+	});
+}
+
+$(document).ready(function(){
+    loadCart8();
+});
+
+$(document).on('click', '.cart8 .button-update', function() {
+	var quantity = $(this).parents('.quantity').find('input.qc-product-qantity');
+	if (quantity.length){
+		if ($(this).data('type')=='increase') {
+			quantity.val(parseInt(quantity.val())+1);
+		} else if ($(this).data('type')=='decrease') {
+			quantity.val(parseInt(quantity.val())-1);
+		}
+	}
+	
+	$.ajax({
+		url: 'index.php?route=extension/quickcheckout/cart2/update',
+		type: 'post',
+		data: $('.cart8 :input'),
+		dataType: 'json',
+		cache: false,
+		beforeSend: function() {
+			$('.cart8 .button-update').prop('disabled', true);
+		},
+		success: function(json) {
+			if (json['redirect']) {
+			    if (window.location.pathname == '/checkout2') {
+				    location = json['redirect'];
+				} else {
+				    $('ul.dropdown-menu.pull-right.dropdown-menu-wrap').html('<li><div class="marker"></div><p class="text-center">Ваша корзина пуста!</p></li>');
+			        $('#cart-total').html(json['count_products']);
+				    $('.cart-total-btn').html(json['count_products']);
+				}
+			} else {
+				if (json['error']['stock']) {
+					$('#button-payment-method').attr("disabled", true);
+				} else if (json['error']['warning']) {
+						$('#warning-messages').html('<div class="alert alert-danger" style="display: none;"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '</div>');
+						$('.alert-danger').fadeIn('slow');
+						$('#button-payment-method').attr("disabled", true);
+				} else {
+					$('#warning-messages').html('');
+					$('#button-payment-method').removeAttr("disabled");
+				}
+                if (window.location.pathname == '/checkout2') {
+			        reloadShippingMethodById($('#shipping-address select[name=\'address_id\']').val());			    
+				}				
+			    loadCart8();
+				$('#cart-total').html(json['count_products']);
+				$('.cart-total-btn').html(json['count_products']);				
+			}
+		}
+	});
+
+	return false;
+});
+
+$(document).on('click', '.button-remove', function() {
+	var remove_id = $(this).attr('data-remove');
+
+	$.ajax({
+		url: 'index.php?route=extension/quickcheckout/cart2/update&remove=' + remove_id,
+		type: 'get',
+		dataType: 'json',
+		cache: false,
+		beforeSend: function() {
+			$('.cart8 .button-remove').prop('disabled', true);
+		},
+		success: function(json) {
+			if (json['redirect']) {
+			    if (window.location.pathname == '/checkout2') {
+				    location = json['redirect'];
+				} else {
+				    $('ul.dropdown-menu.pull-right.dropdown-menu-wrap').html('<li><div class="marker"></div><p class="text-center">Ваша корзина пуста!</p></li>');
+			        $('#cart-total').html(json['count_products']);
+				    $('.cart-total-btn').html(json['count_products']);
+				}
+			} else {
+			    if (window.location.pathname == '/checkout2') {
+				    reloadShippingMethodById($('#shipping-address select[name=\'address_id\']').val());
+				}
+				loadCart8();
+				$('#cart-total').html(json['count_products']);
+				$('.cart-total-btn').html(json['count_products']);
+			}
+		}
+	});
+
+	return false;
+});
+//--></script>
+
+        </div>
+	 	</div>
+	 	</div>
+	  </div>
+    </div>
+  </div>
+</header>
+<div class="container categories-menu2">
+	<div class="row categories2">
+		<div class="category-menu2">
+			<a href="/chassis_parts">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category1.png" alt="ШАССИ И ЗАПЧАСТИ">
+					<div class="category-text2">ШАССИ И <br class="category-text-break" />ЗАПЧАСТИ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/engines_and_parts">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category2.png" alt="МОТОРЫ И ЗАПЧАСТИ">
+					<div class="category-text2">МОТОРЫ И <br class="category-text-break" />ЗАПЧАСТИ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2"> 
+			<a href="/kart_tools">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category3.png" alt="ОБОРУДОВАНИЕ">
+					<div class="category-text2">ОБОРУДОВА- <br class="category-text-break" />НИЕ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/data_systems">
+				<div class="category-link5 category-link5-fix2">
+					<img src="/catalog/view/theme/ktemplate/image/category4.png" alt="ЭЛЕКТРОННЫЕ СИСТЕМЫ">
+					<div class="category-text2">ЭЛЕКТРОННЫЕ <br class="category-text-break" />СИСТЕМЫ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/tyres_and_wheels">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category5.png" alt="ШИНЫ И ДИСКИ">
+					<div class="category-text2">ШИНЫ И <br class="category-text-break" />ДИСКИ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/protection_wear">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category6.png" alt="ЭКИПИРОВКА И ШЛЕМЫ">
+					<div class="category-text2">ЭКИПИРОВКА <br class="category-text-break" />И ШЛЕМЫ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/lubricants">
+				<div class="category-link5">
+					<img src="/catalog/view/theme/ktemplate/image/category7.png" alt="МАСЛО И СМАЗКИ">
+					<div class="category-text2">МАСЛО И <br class="category-text-break" />СМАЗКИ</div>
+				</div>
+			</a>
+		</div> 
+		<div class="category-menu2">
+			<a href="/sprockets_and_chains">
+				<div class="category-link5 category-link5-fix">				
+					<img src="/catalog/view/theme/ktemplate/image/category8.png" alt="ЦЕПИ И ЗВЕЗДЫ">
+					<div class="category-text2">ЦЕПИ И <br class="category-text-break" />ЗВЕЗДЫ</div>
+				</div>
+			</a>
+		</div> 
+	</div>
+</div>
+
+<div id="product-category" class="container">
+  <ul class="breadcrumb-category">
+        <li><a href="https://openkart.ru/">Главная</a></li>
+        <li><a href="https://openkart.ru/tm-kz-inlet-gasket">Впускная прокладка TM KZ</a></li>
+      </ul>
+  <h1>Впускная прокладка TM KZ</h1>
+  <div class="row">
+                <div id="content" class="col-sm-12">
+      	  		      <div class="row category-description">         
+        <div class="col-sm-12"><div class="interactive-scheme">
+		<svg viewBox="0 0 795 419">
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/plastina-krepleniya-vpusknogo-flantsa-tm-kz">
+				<path class="part" d="m 663.55035,149.58709 c -3.26066,-0.22934 -5.43098,1.35855 -7.11582,3.75558 l 0.19766,29.25393 c -19.45742,10.59791 -12.35752,22.27144 -0.39533,27.8703 l 0.59299,29.05627 c 2.96181,4.97938 5.23522,3.76314 7.70881,4.34856 5.96754,6.03462 14.53054,21.81127 25.89368,2.5696 1.18995,-0.9883 1.81235,-1.97661 3.95323,-2.96492 l 45.06687,0.19766 2.96493,1.58129 c 6.64593,14.65681 17.20334,13.52797 24.90537,-0.79065 l 6.32518,-1.18597 c 0.98831,-0.85609 1.97661,-1.74797 2.96492,-4.15089 l -0.19766,-27.47498 c 0.68947,-3.05316 2.43558,-3.4647 4.1509,-3.95323 5.65233,-5.05322 16.43669,-10.40573 -2.17428,-24.11473 -0.49227,-0.46873 -1.18229,-0.14648 -1.18597,-2.5696 l -0.59299,-28.26563 c -1.14483,-2.39251 -5.24236,-3.30867 -9.48776,-4.15089 -5.27121,-8.45317 -12.23585,-17.03586 -22.7311,-5.13921 -0.66563,3.87924 -3.65655,4.96813 -6.91816,5.73219 l -42.49726,0 c -2.30605,-1.22512 -4.61211,-2.4838 -6.91816,-7.31348 -5.35121,-3.36175 -8.8523,-9.94291 -19.76617,2.37194 -0.0358,1.31273 -1.57919,3.50265 -4.74388,5.33686 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-inlet-flange">
+				<path class="part" d="m 540.20944,167.77197 c -17.31842,27.10448 -7.21101,38.25792 -0.19766,52.18269 l 16.99891,7.90647 c 21.89392,6.77552 28.14286,1.03505 37.55572,-2.17428 l 11.66204,-5.33686 c 13.37458,-16.16746 15.03704,-35.07756 0.39532,-52.77567 L 584.288,156.50525 563.73119,155.91227 Z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-inlet-gasket">
+				<path class="part" d="m 20.161494,153.34267 0,22.53343 c -0.755347,6.2155 -3.228699,9.13348 -6.522836,10.47607 -13.14286744,9.12339 -5.743971,17.94426 0.790647,21.54513 3.272557,2.48608 5.094504,5.55241 5.732189,9.09244 l 0.197662,22.13811 c -0.297568,2.94899 2.219617,4.4906 6.127513,5.33686 3.406421,1.42306 6.832203,2.80741 8.697115,7.31349 5.557208,2.88259 10.835189,5.78192 16.405922,-2.56961 0.573491,-2.29708 2.843159,-3.46339 4.941542,-4.74388 l 46.845822,-0.19766 c 2.67331,1.89124 5.35181,3.76172 7.51115,7.70881 5.73732,3.48517 11.53273,5.40202 17.78955,-5.13921 0.97604,-1.82585 3.50627,-2.71918 7.11582,-2.96492 2.25975,-1.23227 4.0598,-2.92424 4.74388,-5.73219 l 0.19766,-23.91707 c 0.93643,-3.7675 3.08378,-5.71863 6.12752,-6.32517 10.96692,-7.24225 8.49787,-16.38267 -2.56961,-23.32408 -2.59892,-1.87265 -3.59151,-4.38783 -3.55791,-7.31349 l 0.19767,-21.54512 c -1.10089,-1.75658 -1.18583,-5.21164 -7.31349,-6.52284 -2.21842,-6.6e-4 -4.97509,-1.61604 -9.2901,-7.90647 -5.8945,-4.59765 -10.70381,-2.68415 -15.02229,2.17428 -1.12607,3.32231 -4.41888,4.83902 -8.69711,5.53453 l -42.299607,0.19766 c -3.947159,-1.01462 -6.759626,-3.39793 -8.301791,-7.31348 -4.057936,-4.27471 -9.317639,-4.22306 -16.010599,0.98831 -0.678808,2.70658 -3.219418,4.66844 -6.522836,6.32517 -2.789268,0.32931 -5.555371,0.72812 -7.313483,4.1509 z" fill="red">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/klapannyj-domik-tm-kz-v-sbore">
+				<path class="part" d="m 202.80091,378.67701 c 1.30207,4.13297 2.55955,10.23024 10.8714,11.85971 l 122.35259,-0.19766 c 2.24492,1.11082 3.58328,-0.83837 8.49945,6.32518 1.44953,-3.55791 5.07332,-5.60043 8.10413,-6.52285 l 122.94558,0 c 6.38957,-0.43316 10.78124,-7.29086 11.06906,-11.26672 l -7.11583,-0.19766 c -1.32406,1.86006 -3.49481,2.61507 -8.49944,2.37194 l -120.37598,-0.19766 c -2.30606,0.75349 -4.01912,2.21601 -6.32517,4.54622 -1.4066,-1.59943 -3.00675,-3.62781 -7.31349,-4.74388 l -121.36429,0.39533 c -2.30605,-0.0955 -4.61211,-0.10776 -6.91816,-2.76727 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal">
+				<path class="part" d="m 221.77643,309.89074 0,50.20607 c 0.12352,1.21893 0.54464,2.19978 1.97662,2.37194 l 69.1816,-0.19766 5.73219,-4.74388 -0.59299,-49.21777 c -0.27392,-0.71853 -1.17566,-1.06038 -2.76726,-0.9883 l -30.63757,0 c -1.81751,-0.34439 -2.91232,1.23838 -3.95323,2.96492 l 0.19766,41.50896 -2.37194,0.19766 0,-42.89259 c -0.32943,-0.79065 -0.92242,-1.44952 -1.77895,-1.97662 l -32.81185,0.19767 c -1.07238,0.3351 -2.15435,0.65582 -2.17428,2.5696 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal">
+				<path class="part" d="m 222.46825,40.379002 -0.0988,50.799059 c 0.42827,0.824836 0.85653,1.859719 1.2848,1.680124 l 69.77458,0.395324 5.73219,-4.743881 0,-48.525949 c -0.50763,-0.560042 -0.64823,-1.120083 -1.87778,-1.680125 l -33.00951,-0.09883 c -0.88008,-0.09419 -1.55576,0.62922 -2.17428,1.581294 l 0,42.596098 c -0.53457,0.41706 -0.83608,1.183704 -2.37194,0.09883 l -0.49415,-42.694929 c -0.23101,-0.263951 -0.75844,-0.824328 -1.77896,-1.877786 l -33.0095,0.09883 c -1.53703,0.615018 -1.71771,1.501305 -1.97665,2.371941 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal-stopper">
+				<path class="part" d="m 308.35226,61.825297 -0.19766,29.846918 c 0.71441,1.27637 1.11661,1.303855 1.58129,1.581294 l 69.77459,0.197661 5.33686,-4.743881 0.0988,-26.783161 -9.88308,0.09883 c -6.35597,20.883364 -42.44909,32.005948 -56.63008,-1.18597 l -9.58659,-0.09883 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal-stopper">
+				<path class="part" d="m 393.24796,82.085622 -0.29649,7.313483 2.47077,3.360249 73.6939,-0.192695 c 0.26592,-3.942672 0.26273,-6.72339 0.15673,-9.736293 -7.62365,-1.948557 -11.64858,-7.897976 -11.26672,-20.272316 l -7.0939,0.02895 -0.16868,9.150332 c -6.28877,12.796168 -11.0752,10.620211 -15.69013,0.168714 l -0.50614,-9.126351 -6.70851,-0.06492 -0.79064,10.871394 c -4.17268,3.92728 -7.24972,13.716272 -14.92346,-1.08714 l -0.19766,-10.179577 -7.41232,-0.09883 c -0.0541,9.784769 -1.11985,18.705003 -11.26675,19.865002 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal-stopper">
+				<path class="part" d="m 392.95754,351.70174 -0.20965,6.91851 2.58571,2.93513 72.95886,-0.20967 0.0699,-9.92353 c -7.94005,-0.75124 -10.71972,-8.55081 -11.04166,-19.70727 l -7.05828,-0.13977 -0.20966,10.69224 c -3.70085,3.44051 -6.78466,15.32796 -15.58412,-0.90849 l -0.27954,-9.43433 -6.91851,0 -0.76873,11.04166 c -4.41216,6.51578 -9.14752,11.55551 -15.02505,-0.97837 l -0.48918,-10.27294 -7.4077,-0.34942 -0.34942,11.25131 c -3.05105,3.1994 -3.24112,7.71007 -10.27295,9.08494 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal-stopper">
+				<path class="part" d="m 307.66044,295.65909 -0.29649,29.64926 c 1.12637,2.26793 0.95875,1.08519 1.38363,1.48246 l 69.97225,0.49416 5.4357,-4.34856 -0.0988,-26.68433 -9.68542,0 c -10.3811,26.41573 -45.27055,26.5629 -56.53125,-1.2848 l -9.88308,0.2965 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/tm-kz-reed-petal-stopper">
+				<path class="part" d="m 307.46278,330.15106 -0.0988,30.14341 c -0.0697,0.80417 0.16941,1.40247 0.88948,1.68013 l 70.07108,0.29649 5.53452,-4.24973 0.0988,-26.88199 -9.38893,-0.0988 c -8.30692,22.92795 -44.36669,28.73299 -57.12423,-0.98831 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/fiksiruyuschaya-plastina-klapana-tm-kz">
+				<path class="part" d="m 319.02599,140.49466 45.1657,6.12751 c 4.0241,-1.02125 8.33982,-2.04251 10.08075,-3.06376 -0.60668,-0.36238 -1.12415,-0.72476 -1.97662,-1.08714 l -42.20077,-5.33686 -3.65674,0.69181 c -2.13493,0.85626 -5.61389,1.25946 -7.41232,2.66844 z" fill="#87d7fb">
+			</path></a>
+			<a href="https://openkart.ru/engines_and_parts/tm_racing_parts/tm_kz10_parts/tm-kz-reedblock/fiksiruyuschaya-plastina-klapana-tm-kz">
+				<path class="part" d="m 311.91017,251.97586 8.49946,5.63336 39.13701,5.63336 6.22635,0.59298 c -1.52429,-1.86964 -4.88158,-4.00114 -8.20296,-6.12751 -10.22943,-0.84737 -22.96748,-3.12824 -34.8873,-4.94154 z" fill="#87d7fb">
+			</path></a>
+		</svg>
+		<img src="https://openkart.ru/image/catalog/scheme/schemes/scheme-0004-v1.jpg" alt="PACCO LAMELLARE – REEDS BOX">
+</div>
+<link href="https://openkart.ru/image/catalog/scheme/schemes/libs/scheme-v3.css" rel="stylesheet" media="screen"></div>
+      </div>
+                       <div class="row category-form-control-wrap">
+		  <div class="col-md-4 col-sm-12"></div>
+		  <div class="col-md-8 col-sm-12">
+			<div class="row">
+        		<div class="col-md-9 col-sm-6 category-control-sorts">
+          		<div class="category-form-control2">
+            		<span class="category-form-control-texts">Сортировка:</span>
+            		<select class="category-sorts2" onchange="location = this.value;"> 
+              		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=p.sort_order&amp;order=ASC" selected="selected">По умолчанию</option>
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=pd.name&amp;order=ASC">Название (А - Я)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=pd.name&amp;order=DESC">Название (Я - А)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=p.price&amp;order=ASC">Цена (низкая &gt; высокая)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=p.price&amp;order=DESC">Цена (высокая &gt; низкая)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=rating&amp;order=DESC">Рейтинг (начиная с высокого)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=rating&amp;order=ASC">Рейтинг (начиная с низкого)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=p.model&amp;order=ASC">Модель (А - Я)</option>           
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?sort=p.model&amp;order=DESC">Модель (Я - А)</option>           
+              		               		            
+            		</select>
+						<select id="width_tmp_select">
+ 							<option id="width_tmp_option"></option>
+						</select>
+          		</div>
+        		</div>
+        		<div class="col-md-3 col-sm-6 category-control-pages">
+          		<div class="category-form-control">
+            		<span class="category-form-control-texts">На странице:</span> 
+            		<select class="category-sorts3" onchange="location = this.value;">          
+              		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?limit=16">16</option>   
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?limit=32">32</option>   
+              		               		               		               			<option value="https://openkart.ru/tm-kz-inlet-gasket?limit=48">48</option>   
+              		               		               		                   	<option value="https://openkart.ru/tm-kz-inlet-gasket?limit=96" selected="selected">96</option>            
+              		               		   
+            		</select>
+          		</div>
+        		</div>
+			</div>
+		 </div>
+      </div>
+      <div class="row"> 
+	  
+  	<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="product-thumb transition" onclick="if (event.ctrlKey) { window.open('https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz', '_blank'); return false; } else { location.href='https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz'; return false; }">
+     <h4 class="h4-product-name"><a href="https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz">Прокладка клапанного домика TM KZ зеленая</a></h4>
+			   <div class="product-info">	
+			<ul class="list-unstyled">
+                        <li>Производитель: TM Racing</li>
+                        <li>Модель: 05272</li>
+				         </ul>
+		</div>
+      <div class="image"><a href="https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz"><img 
+				class="lazyload" data-src="https://openkart.ru/image/cache/catalog/data/05272-228x228.jpg"
+			 alt="Прокладка клапанного домика TM KZ зеленая" title="Прокладка клапанного домика TM KZ зеленая" class="img-responsive" /></a></div>
+      <div class="caption">      
+        <div class="price"> 
+						           118.11&nbsp;<span class="currency-rub">₽</span>
+           
+          
+			            <br /><span class="product-quantity">В наличии: 15</span>
+					  </div>
+		  <div class="cart-btn-wrap">
+          <div class="category-plus-minus">
+  				<button type="button" onclick="event.stopPropagation(); if ($(this).next().val() > 1) {$(this).next().val($(this).next().val()-1);} $(this).parents('form').submit();" class="minus" window.event.cancelBubble = "true">&ndash;</button>
+            <input type="text" onclick="event.stopPropagation();" name="quantity" value="1" size="2" id="input-quantity" class="quantity-items" window.event.cancelBubble = "true" />
+  				<button type="button" onclick="event.stopPropagation(); $(this).prev().val(~~$(this).prev().val()+1); $(this).parents('form').submit();" class="plus" window.event.cancelBubble = "true">+</button>        
+          </div>
+        	 <button type="button" class="cart-btn" onclick="event.stopPropagation(); cart.add('1551',$(this).parent().find('.quantity-items').val());" window.event.cancelBubble = "true">Купить</button>   
+		  </div>
+		</div>        
+    </div>
+  </div>
+    
+  	<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="product-thumb transition" onclick="if (event.ctrlKey) { window.open('https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz-seraya', '_blank'); return false; } else { location.href='https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz-seraya'; return false; }">
+     <h4 class="h4-product-name"><a href="https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz-seraya">Прокладка клапанного домика TM KZ серая</a></h4>
+			   <div class="product-info">	
+			<ul class="list-unstyled">
+                        <li>Производитель: TM Racing</li>
+                        <li>Модель: 05265</li>
+				         </ul>
+		</div>
+      <div class="image"><a href="https://openkart.ru/tm-kz-inlet-gasket/prokladka-klapannogo-domika-tm-kz-seraya"><img 
+				class="lazyload" data-src="https://openkart.ru/image/cache/catalog/data/05265-228x228.jpg"
+			 alt="Прокладка клапанного домика TM KZ серая" title="Прокладка клапанного домика TM KZ серая" class="img-responsive" /></a></div>
+      <div class="caption">      
+        <div class="price"> 
+						           133.92&nbsp;<span class="currency-rub">₽</span>
+           
+          
+			            <br /><span class="product-quantity">В наличии: 21</span>
+					  </div>
+		  <div class="cart-btn-wrap">
+          <div class="category-plus-minus">
+  				<button type="button" onclick="event.stopPropagation(); if ($(this).next().val() > 1) {$(this).next().val($(this).next().val()-1);} $(this).parents('form').submit();" class="minus" window.event.cancelBubble = "true">&ndash;</button>
+            <input type="text" onclick="event.stopPropagation();" name="quantity" value="1" size="2" id="input-quantity" class="quantity-items" window.event.cancelBubble = "true" />
+  				<button type="button" onclick="event.stopPropagation(); $(this).prev().val(~~$(this).prev().val()+1); $(this).parents('form').submit();" class="plus" window.event.cancelBubble = "true">+</button>        
+          </div>
+        	 <button type="button" class="cart-btn" onclick="event.stopPropagation(); cart.add('3097',$(this).parent().find('.quantity-items').val());" window.event.cancelBubble = "true">Купить</button>   
+		  </div>
+		</div>        
+    </div>
+  </div>
+   
+
+	
+		</div>
+      <div class="row">
+        <div class="col-md-6 text-left category-pagination"></div>
+        <div class="col-md-6 text-right category-results"><span class="category-form-control-texts">Показано</span> с 1 по 2 из 2 (всего 1 страниц)</div>
+      </div>
+                  </div>
+    </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="row footer-links">
+            <div class="col-md-2 col-sm-4">
+        <h5>Информация</h5>
+        <ul class="list-footer-links">
+          <li><a href="https://openkart.ru/contact-us">Адреса и телефоны</a></li>
+                   <li><a href="https://openkart.ru/delivery">Доставка запчастей для картинга</a></li>
+                    <li><a href="https://openkart.ru/oplata">Способы оплаты</a></li>
+                  </ul>
+      </div>
+       
+		<div class="col-md-4 col-sm-8">	
+		  <div class="row">	
+      	<div class="col-md-7 col-sm-7 footer-service">
+        	 <h5>Служба поддержки</h5>
+        	 <ul class="list-footer-links">
+          	<li><a href="https://openkart.ru/kak-sdelat-zakaz">Как сделать заказ</a></li>
+          	<li><a href="https://openkart.ru/katalogi-i-tablitsy-razmerov">Каталоги и таблицы размеров</a></li>
+          	<li><a href="https://openkart.ru/nastroyka-karta-i-prochee">Настройка карта и прочее</a></li>
+        	 </ul>
+      	</div>
+      	<div class="col-md-5 col-sm-5 footer-extra"> 
+          <h5>Дополнительно</h5>
+        	 <ul class="list-footer-links">
+          	<li><a href="https://openkart.ru/brands">Производители</a></li>
+          	<li><a href="https://openkart.ru/specials">Акции</a></li>
+          	<li><a href="https://openkart.ru/latest">Новинки</a></li>
+          	<li><a href="https://openkart.ru/sitemap">Карта сайта</a></li>
+          </ul>
+      	</div>
+		  </div>
+		</div>
+      <div class="col-md-2 col-sm-4 footer-account"> 
+        <h5>Личный Кабинет</h5>
+        <ul class="list-footer-links">
+          <li><a href="https://openkart.ru/my-account">Личный Кабинет</a></li>
+          <li><a href="https://openkart.ru/order-history">История заказов</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-8 footer-map">   
+        <h5 class="h5-fix">НАШ АДРЕС</h5>
+        <ul class="list-unstyled">
+          <li><i class="fa fa-map-marker"></i> г. Санкт-Петербург, ул. Плуталова, д. 8</li>
+          <li><i class="fa fa-mobile"></i> +7-921-9672225</li>
+          <li><i class="fa fa-envelope-o"></i> <a href="/cdn-cgi/l/email-protection#422b2c242d022d32272c292330366c3037" class="footer-email"><span class="__cf_email__" data-cfemail="7c15121a133c130c1912171d0e08520e09">[email&#160;protected]</span></a></li>
+			 <li class="footer-icons">
+				<a href="https://www.facebook.com/openkart.ru/" class="fa fa-facebook" target="_blank"></a>
+				<a href="https://telegram.me/openkartnews" class="fa fa-telegram" target="_blank"></a>
+				<a href="https://www.instagram.com/openkart/" class="fa fa-instagram" target="_blank"></a>
+				<a href="https://vk.com/openkart" class="fa fa-vk" target="_blank"></a>
+			 </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyrights">&copy; 2020 Openkart</div>
+  </div>
+</footer>
+<div class="in-stock-btn-form" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000db; z-index: 9999999; text-align: center;">	
+	<div style="display: table-cell; vertical-align: middle;">	
+		<form method = "post">
+			<span style="font-size: 17px; color: #fff;">Уведомить о поступлении на e-mail:</span>
+			<input type="email" placeholder="username@example.ru" class="form-control" name="mail_in_stock" style="width: 80%; max-width: 400px; margin: 15px auto 25px;" />
+			<input type="hidden" class="form-control product-id-in-stock" name="product_id_in_stock" />
+			<button type="submit" name="send_in_stock" value = "OK" data-loading-text="Загрузка..." class="btn btn-success in-stock-btn-close">ОК</button>
+			<button type="button" class="btn btn-danger in-stock-btn-close" onclick="$('.in-stock-btn-form').hide();">Отмена</button> 
+		</form>
+	</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript"><!--
+	$('.cart-btn').on('click', function(){
+	    setTimeout(function() {
+	        loadCart8(); //fix3
+		}, 1000);
+		$('.cart-total-href').css({ display: 'block' });
+		if ($(this).closest('.product-thumb').find('img').length == 1) {
+			var that = $(this).closest('.product-thumb').find('img');
+		} else {
+			var that = $(this).closest('#content').find('img');
+		}			
+		var cartTotalHref = $(".cart-total-href");
+		var w = that.width();		
+        that.clone()
+            .css({'width' : w,
+			'position' : 'absolute',
+			'z-index' : '9999',
+			top: that.offset().top,
+			left: that.offset().left })
+            .appendTo("body")
+            .animate({opacity: 0.05,
+                left: cartTotalHref.offset()['left'],
+                top: cartTotalHref.offset()['top'],						
+                width: 20}, 1000, function() {	
+					$(this).remove();
+				});
+	});
+//--></script>
+	<script type="text/javascript">
+  		WebFontConfig = {
+    		google: { families: [ 'Open+Sans:300,400,400i,700' , 'Roboto:300,400,500,700' ] }
+  		};
+  		(function() {
+    		var wf = document.createElement('script');
+    		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+   		wf.type = 'text/javascript';
+    		wf.async = 'true';
+    		var s = document.getElementsByTagName('script')[0];
+    		s.parentNode.insertBefore(wf, s);
+  		})();
+	</script>
+</body></html>
+ 
